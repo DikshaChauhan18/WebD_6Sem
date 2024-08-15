@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three-Part Iframe Example</title>
+</head>
+<body>
+
+<div style="display: flex;">
+    <!-- First part containing options -->
+    <div style="flex: 1;">
+        <h3>Select an Option</h3>
+        <ul>
+            <li><a href="#option1" onclick="showContent('option1')">Option 1</a></li>
+            <li><a href="#option2" onclick="showContent('option2')">Option 2</a></li>
+            <li><a href="#option3" onclick="showContent('option3')">Option 3</a></li>
+        </ul>
+    </div>
+
+    <!-- Second part displaying content -->
+    <div id="contentFrame1" style="flex: 2; display: none;">
+        <h3>Option 1 Content</h3>
+        <iframe src="option1_content.html" width="100%" height="300px" frameborder="0"></iframe>
+    </div>
+
+    <div id="contentFrame2" style="flex: 2; display: none;">
+        <h3>Option 2 Content</h3>
+        <iframe src="option2_content.html" width="100%" height="300px" frameborder="0"></iframe>
+    </div>
+
+    <div id="contentFrame3" style="flex: 2; display: none;">
+        <h3>Option 3 Content</h3>
+        <iframe src="option3_content.html" width="100%" height="300px" frameborder="0"></iframe>
+    </div>
+
+    <!-- Third part displaying images -->
+    <div id="imageFrame1" style="flex: 2; display: none;">
+        <h3>Option 1 Images</h3>
+        <iframe src="option1_images.html" width="100%" height="300px" frameborder="0"></iframe>
+    </div>
+
+    <div id="imageFrame2" style="flex: 2; display: none;">
+        <h3>Option 2 Images</h3>
+        <iframe src="option2_images.html" width="100%" height="300px" frameborder="0"></iframe>
+    </div>
+
+    <div id="imageFrame3" style="flex: 2; display: none;">
+        <h3>Option 3 Images</h3>
+        <iframe src="option3_images.html" width="100%" height="300px" frameborder="0"></iframe>
+    </div>
+</div>
+
+<script>
+function showContent(option) {
+    // Hide all content and image frames
+    hideAllFrames();
+
+    // Show the selected content and image frames
+    document.getElementById("contentFrame" + option[option.length-1]).style.display = "block";
+    document.getElementById("imageFrame" + option[option.length-1]).style.display = "block";
+}
+
+function hideAllFrames() {
+    // Hide all content and image frames
+    for (let i = 1; i <= 3; i++) {
+        document.getElementById("contentFrame" + i).style.display = "none";
+        document.getElementById("imageFrame" + i).style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
